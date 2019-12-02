@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public abstract class Komento {
+    protected int viimemuutos;
     protected Sovelluslogiikka sovellus;
     protected TextField tuloskentta; 
     protected TextField syotekentta; 

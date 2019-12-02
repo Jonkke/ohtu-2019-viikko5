@@ -21,6 +21,7 @@ public class KomentoErotus extends Komento {
         } catch (Exception e) {
         }
         
+        this.viimemuutos = arvo;
         sovellus.miinus(arvo);
         int laskunTulos = sovellus.tulos();
         syotekentta.setText("");
@@ -36,7 +37,16 @@ public class KomentoErotus extends Komento {
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sovellus.plus(viimemuutos);
+        int laskunTulos = sovellus.tulos();
+        syotekentta.setText("");
+        tuloskentta.setText("" + laskunTulos);
+        if ( laskunTulos==0) {
+            nollaa.disableProperty().set(true);
+        } else {
+            nollaa.disableProperty().set(false);
+        }
+        undo.disableProperty().set(true);
     }
     
 }

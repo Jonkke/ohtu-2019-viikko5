@@ -21,6 +21,7 @@ public class KomentoNollaa extends Komento {
         } catch (Exception e) {
         }
         
+        this.viimemuutos = sovellus.tulos();
         sovellus.nollaa();
         int laskunTulos = sovellus.tulos();
         syotekentta.setText("");
@@ -36,7 +37,13 @@ public class KomentoNollaa extends Komento {
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sovellus.plus(viimemuutos);
+        int laskunTulos = sovellus.tulos();
+        syotekentta.setText("");
+        tuloskentta.setText("" + laskunTulos);
+        nollaa.disableProperty().set(true);
+
+        undo.disableProperty().set(true);
     }
     
 }
